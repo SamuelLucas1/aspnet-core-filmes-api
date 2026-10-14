@@ -10,6 +10,13 @@
 *.userosscache
 *.sln.docstates
 
+# dotnet files
+.env
+
+*.db
+*.db-shm
+*.db-wal
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

@@ -22,7 +22,7 @@ namespace FilmesApi
             //{
             //    context.Database.EnsureCreated();
             //}
-
+            
             // Serviços
             builder.Services.AddAuthorization();
 
