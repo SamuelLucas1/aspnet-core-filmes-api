@@ -29,6 +29,33 @@ namespace FilmesApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Diretores");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Steven Spielberg"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Christopher Nolan"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Quentin Tarantino"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Martin Scorsese"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "James Cameron"
+                        });
                 });
 
             modelBuilder.Entity("FilmesApi.Entities.Filme", b =>
@@ -52,6 +79,120 @@ namespace FilmesApi.Migrations
                     b.HasIndex("DiretorId");
 
                     b.ToTable("Filmes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DiretorId = 1,
+                            Title = "Jurassic Park",
+                            Year = 1993
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DiretorId = 1,
+                            Title = "Jaws",
+                            Year = 1975
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DiretorId = 1,
+                            Title = "E.T. the Extra-Terrestrial",
+                            Year = 1982
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DiretorId = 1,
+                            Title = "Schindler's List",
+                            Year = 1993
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DiretorId = 2,
+                            Title = "Inception",
+                            Year = 2010
+                        },
+                        new
+                        {
+                            Id = 6,
+                            DiretorId = 2,
+                            Title = "The Dark Knight",
+                            Year = 2008
+                        },
+                        new
+                        {
+                            Id = 7,
+                            DiretorId = 2,
+                            Title = "Interstellar",
+                            Year = 2014
+                        },
+                        new
+                        {
+                            Id = 8,
+                            DiretorId = 3,
+                            Title = "Pulp Fiction",
+                            Year = 1994
+                        },
+                        new
+                        {
+                            Id = 9,
+                            DiretorId = 3,
+                            Title = "Kill Bill: Vol. 1",
+                            Year = 2003
+                        },
+                        new
+                        {
+                            Id = 10,
+                            DiretorId = 3,
+                            Title = "Django Unchained",
+                            Year = 2012
+                        },
+                        new
+                        {
+                            Id = 11,
+                            DiretorId = 4,
+                            Title = "Goodfellas",
+                            Year = 1990
+                        },
+                        new
+                        {
+                            Id = 12,
+                            DiretorId = 4,
+                            Title = "Taxi Driver",
+                            Year = 1976
+                        },
+                        new
+                        {
+                            Id = 13,
+                            DiretorId = 4,
+                            Title = "The Departed",
+                            Year = 2006
+                        },
+                        new
+                        {
+                            Id = 14,
+                            DiretorId = 5,
+                            Title = "Titanic",
+                            Year = 1997
+                        },
+                        new
+                        {
+                            Id = 15,
+                            DiretorId = 5,
+                            Title = "Avatar",
+                            Year = 2009
+                        },
+                        new
+                        {
+                            Id = 16,
+                            DiretorId = 5,
+                            Title = "Terminator 2: Judgment Day",
+                            Year = 1991
+                        });
                 });
 
             modelBuilder.Entity("FilmesApi.Entities.Filme", b =>
