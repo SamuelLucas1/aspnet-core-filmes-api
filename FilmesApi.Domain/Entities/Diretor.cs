@@ -1,4 +1,4 @@
-﻿namespace FilmesApi.Entities
+﻿namespace FilmesApi.API.Domain.Entities
 {
     public class Diretor
     {

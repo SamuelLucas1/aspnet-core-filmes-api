@@ -1,7 +1,7 @@
-﻿using FilmesApi.Entities;
+﻿using FilmesApi.API.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace FilmesApi.DbContexts
+namespace FilmesApi.API.Repo.Contexts
 {
     public class Context(DbContextOptions<Context> options) : DbContext(options)
     {

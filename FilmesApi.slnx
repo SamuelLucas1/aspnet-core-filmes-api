@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="FilmesApi/FilmesApi.csproj" />
+  <Project Path="FilmesApi.Domain/FilmesApi.Domain.csproj" Id="038e6a82-98ae-4cf4-85e2-d56fa3e6ee5a" />
+  <Project Path="FilmesApi.Repo/FilmesApi.Repo.csproj" Id="34974668-fb5b-4d32-b25c-5a757e91267f" />
+  <Project Path="FilmesApi/FilmesApi.API.csproj" />
 </Solution>
