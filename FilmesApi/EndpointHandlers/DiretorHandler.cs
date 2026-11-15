@@ -1,7 +1,5 @@
 ﻿using FilmesApi.API.Domain.Entities;
-using FilmesApi.API.Repo.Contexts;
 using FilmesApi.Repo.Contracts;
-using Microsoft.EntityFrameworkCore;
 
 namespace FilmesApi.API.EndpointHandlers
 {

@@ -12,7 +12,7 @@ namespace FilmesApi.Repo
         public Filme? GetFilmeById(int id)
         {
             return Context.Filmes
-                .Include(filme => filme.Diretor)
+                .Include(filme => filme.Diretores)
                 .FirstOrDefault(filme => filme.Id == id)
                 ?? new Filme { Id = 0, Title = "Nao existe esse filme" };
         }
@@ -20,7 +20,7 @@ namespace FilmesApi.Repo
         public IEnumerable<Filme> GetFilmes()
         {
             return Context.Filmes
-                .Include(filme => filme.Diretor)
+                .Include(filme => filme.Diretores)
                 .OrderByDescending(filme => filme.Year)
                 .ThenBy(filme => filme.Title)
                 .ToList();
@@ -30,7 +30,7 @@ namespace FilmesApi.Repo
         {
             return Context.Filmes
                 .Where(filme => filme.Title.Contains(titulo))
-                .Include(filme => filme.Diretor)
+                .Include(filme => filme.Diretores)
                 .ToList();
         }
 
@@ -38,7 +38,7 @@ namespace FilmesApi.Repo
         {
             return Context.Filmes
                 .Where(filme => EF.Functions.Like(filme.Title, $"%{titulo}%"))
-                .Include(filme => filme.Diretor)
+                .Include(filme => filme.Diretores)
                 .ToList();
         }
 

@@ -1,3 +1,4 @@
+using FilmesApi.API.EndpointExtensions;
 using FilmesApi.API.EndpointHandlers;
 using FilmesApi.API.Repo.Contexts;
 using FilmesApi.Repo;
@@ -38,6 +39,8 @@ public class Program
 
         builder.Services.AddScoped<IDiretorRepository, DiretorRepository>();
         builder.Services.AddScoped<IFilmeRepository, FilmeRepository>();
+        builder.Services.AddScoped<IDiretorDetalhe, DiretorDetalheRepository>();
+
 
         var app = builder.Build();
 
@@ -64,6 +67,7 @@ public class Program
 
         app.MapDiretorEndpoints();
         app.MapFilmeEndpoints();
+        app.MapDiretorDetalheEndpoints();
 
         app.Run();
     }
