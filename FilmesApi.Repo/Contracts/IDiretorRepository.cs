@@ -5,12 +5,12 @@ namespace FilmesApi.Repo.Contracts
 {
     public interface IDiretorRepository
     {
-        IEnumerable<Diretor> GetDiretores();
-        Diretor GetDiretorByName(string name);
-        IEnumerable<Diretor> GetDiretorById(int id);
-        void Add(Diretor diretor);
-        void Update(Diretor diretor);
-        void Delete(int diretorId);
-        bool SaveChanges();
+        Task<IEnumerable<Diretor>> GetDiretoresAsync();
+        Task<Diretor> GetDiretorByNameAsync(string name);
+        Task<IEnumerable<Diretor>> GetDiretorByIdAsync(int id);
+        Task AddAsync(Diretor diretor);
+        Task UpdateAsync(Diretor diretor);
+        Task DeleteAsync(int diretorId);
+        Task<bool> SaveChangesAsync();
     }
 }   

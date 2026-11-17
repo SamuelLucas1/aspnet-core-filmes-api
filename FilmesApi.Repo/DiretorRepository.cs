@@ -9,43 +9,43 @@ namespace FilmesApi.Repo
     {
         public Context Context { get; set; } = _context;
 
-        public IEnumerable<Diretor> GetDiretores()
+        public async Task<IEnumerable<Diretor>> GetDiretoresAsync()
         {
-            return Context.Diretores.Include(diretor => diretor.Filmes).ToList();
+            return await Context.Diretores.Include(diretor => diretor.Filmes).ToListAsync();
         }
 
-        public Diretor GetDiretorByName(string name)
+        public async Task<Diretor> GetDiretorByNameAsync(string name)
         {
-            return Context.Diretores
+            return await Context.Diretores
                 .Include(diretor => diretor.Filmes)
-                .FirstOrDefault(diretor => diretor.Name.Contains(name))
+                .FirstOrDefaultAsync(diretor => diretor.Name.Contains(name))
                 ?? new Diretor { Id = 0, Name = "Nao existe esse nome" };
         }
 
-        public IEnumerable<Diretor> GetDiretorById(int id)
+        public async Task<IEnumerable<Diretor>> GetDiretorByIdAsync(int id)
         {
-            return Context.Diretores
-                .Where(diretor => diretor.Id == id)
+            return await Context.Diretores
                 .Include(diretor => diretor.Filmes)
-                .ToList();
+                .Where(diretor => diretor.Id == id)
+                .ToListAsync();
         }
 
-        public void Add(Diretor diretor)
+        public async Task AddAsync(Diretor diretor)
         {
-            Context.Diretores.Add(diretor);
+           await Context.Diretores.AddAsync(diretor);
         }
 
-        public void Delete(int diretorId)
+        public async Task DeleteAsync(int diretorId)
         {
-            var diretor = Context.Diretores.Find(diretorId);
+            var diretor = await Context.Diretores.FindAsync(diretorId);
 
             if (diretor != null)
                 Context.Diretores.Remove(diretor);
         }
 
-        public void Update(Diretor diretorNovo)
+        public async Task UpdateAsync(Diretor diretorNovo)
         {
-            var diretor = Context.Diretores.Find(diretorNovo.Id);
+            var diretor = await Context.Diretores.FindAsync(diretorNovo.Id);
 
             if (diretor != null)
             {
@@ -61,9 +61,9 @@ namespace FilmesApi.Repo
             }
         }
 
-        public bool SaveChanges()
+        public async Task<bool> SaveChangesAsync()
         {
-           return Context.SaveChanges() > 0;
+           return (await Context.SaveChangesAsync()) > 0;
         }
     }
 }

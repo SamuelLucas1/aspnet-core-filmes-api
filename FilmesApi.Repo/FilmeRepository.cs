@@ -9,67 +9,67 @@ namespace FilmesApi.Repo
     {
         public Context Context { get; set; } = _context;
 
-        public Filme? GetFilmeById(int id)
+        public async Task<Filme?> GetFilmeByIdAsync(int id)
         {
-            return Context.Filmes
+            return await Context.Filmes
                 .Include(filme => filme.Diretores)
-                .FirstOrDefault(filme => filme.Id == id)
+                .FirstOrDefaultAsync(filme => filme.Id == id)
                 ?? new Filme { Id = 0, Title = "Nao existe esse filme" };
         }
 
-        public IEnumerable<Filme> GetFilmes()
+        public async Task<IEnumerable<Filme>> GetFilmesAsync()
         {
-            return Context.Filmes
+            return await Context.Filmes
                 .Include(filme => filme.Diretores)
                 .OrderByDescending(filme => filme.Year)
                 .ThenBy(filme => filme.Title)
-                .ToList();
+                .ToListAsync();
         }
 
-        public IEnumerable<Filme> GetFilmesContainsByTitulo(string titulo)
+        public async Task<IEnumerable<Filme>> GetFilmesContainsByTituloAsync(string titulo)
         {
-            return Context.Filmes
+            return await Context.Filmes
+                .Include(filme => filme.Diretores)
                 .Where(filme => filme.Title.Contains(titulo))
-                .Include(filme => filme.Diretores)
-                .ToList();
+                .ToListAsync();
         }
 
-        public IEnumerable<Filme> GetFilmesEFFunctionsByTitulo(string titulo)
+        public async Task<IEnumerable<Filme>> GetFilmesEFFunctionsByTituloAsync(string titulo)
         {
-            return Context.Filmes
+            return await Context.Filmes
+                .Include(filme => filme.Diretores)
                 .Where(filme => EF.Functions.Like(filme.Title, $"%{titulo}%"))
-                .Include(filme => filme.Diretores)
-                .ToList();
+                .ToListAsync();
         }
 
-        public bool UpdateFilme(int id, string title, int year)
+        public async Task<bool> UpdateFilmeAsync(int id, string title, int year)
         {
-            var filme = Context.Filmes.Find(id);
+            var filme = await Context.Filmes.FindAsync(id);
             if (filme is null) return false;
 
             filme.Title = title;
             filme.Year = year;
             return true;               // o SaveChanges fica no handler
         }
-        public int ExecuteUpdateFilme(int id, string title, int year)
+        public async Task<int> ExecuteUpdateFilmeAsync(int id, string title, int year)
         {
-            return Context.Filmes
+            return await Context.Filmes
                 .Where(f => f.Id == id)
-                .ExecuteUpdate(s => s
+                .ExecuteUpdateAsync(s => s
                 .SetProperty(f => f.Title, title)
                 .SetProperty(f => f.Year, year));
         }
 
-        public void Delete(int filmeId)
+        public async Task DeleteAsync(int filmeId)
         {
-            Context.Filmes
+            await Context.Filmes
                 .Where(filme => filme.Id == filmeId)
-                .ExecuteDelete<Filme>();
+                .ExecuteDeleteAsync<Filme>();
         }
 
-        public bool SaveChanges()
+        public async Task<bool> SaveChangesAsync()
         {
-            return Context.SaveChanges() > 0;
+            return (await Context.SaveChangesAsync()) > 0;
         }
     }
 }   

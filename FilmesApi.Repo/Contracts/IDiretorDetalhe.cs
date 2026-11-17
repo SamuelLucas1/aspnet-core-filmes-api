@@ -4,6 +4,6 @@ namespace FilmesApi.Repo.Contracts
 {
     public interface IDiretorDetalhe
     {
-        DiretorDetalhe? GetDiretorDetalheById(int id); // pode devolver null
+        Task<DiretorDetalhe?> GetDiretorDetalheByIdAsync(int id); // pode devolver null
     }
 }

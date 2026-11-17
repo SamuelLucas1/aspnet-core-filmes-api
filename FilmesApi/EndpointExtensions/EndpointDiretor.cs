@@ -4,17 +4,17 @@
     {
         public static void MapDiretorEndpoints(this WebApplication app)
         {
-            app.MapGet("/diretores", DiretorHandler.GetDiretores);
+            app.MapGet("/diretores", DiretorHandler.GetDiretoresAsync);
 
-            app.MapGet("/diretores/agregacao/{name}", DiretorHandler.GetDiretorByName);
+            app.MapGet("/diretores/agregacao/{name}", DiretorHandler.GetDiretorByNameAsync);
 
-            app.MapGet("/diretores/where/{id}", DiretorHandler.GetDiretorById);
+            app.MapGet("/diretores/where/{id}", DiretorHandler.GetDiretorByIdAsync);
 
-            app.MapPost("/diretores", DiretorHandler.CreateDiretor);
+            app.MapPost("/diretores", DiretorHandler.CreateDiretorAsync);
 
-            app.MapPut("/diretores", DiretorHandler.UpdateDiretor);
+            app.MapPut("/diretores", DiretorHandler.UpdateDiretorAsync);
 
-            app.MapDelete("/diretores/{diretorId}", DiretorHandler.DeleteDiretor);
+            app.MapDelete("/diretores/{diretorId}", DiretorHandler.DeleteDiretorAsync);
         }
     }
 }

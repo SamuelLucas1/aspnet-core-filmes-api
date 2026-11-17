@@ -6,43 +6,43 @@ namespace FilmesApi.API.EndpointHandlers
 {
     public static class FilmeHandler
     {
-        public static IEnumerable<Filme> GetFilmes(IFilmeRepository IFilmerepository)
+        public static async Task<IEnumerable<Filme>> GetFilmesAsync(IFilmeRepository IFilmerepository)
         {
-            return IFilmerepository.GetFilmes();
+            return await IFilmerepository.GetFilmesAsync();
         }
 
-        public static Filme GetFilmeById(IFilmeRepository IFilmerepository, int id)
+        public static async Task<Filme?> GetFilmeByIdAsync(IFilmeRepository IFilmerepository, int id)
         {
-            return IFilmerepository.GetFilmeById(id);
+            return await IFilmerepository.GetFilmeByIdAsync(id);
         }
 
-        public static IEnumerable<Filme> GetFilmesEFFunctionsByTitulo(IFilmeRepository IFilmerepository, string titulo)
+        public static async Task<IEnumerable<Filme>> GetFilmesEFFunctionsByTituloAsync(IFilmeRepository IFilmerepository, string titulo)
         {
-            return IFilmerepository.GetFilmesEFFunctionsByTitulo(titulo);
+            return await IFilmerepository.GetFilmesEFFunctionsByTituloAsync(titulo);
         }
 
-        public static IEnumerable<Filme> GetFilmesContainsByTitulo(IFilmeRepository IFilmerepository, string titulo)
+        public static async Task<IEnumerable<Filme>> GetFilmesContainsByTituloAsync(IFilmeRepository IFilmerepository, string titulo)
         {
-            return IFilmerepository.GetFilmesContainsByTitulo(titulo);
+            return await IFilmerepository.GetFilmesContainsByTituloAsync(titulo);
         }
 
-        public static void DeleteFilme(IFilmeRepository IFilmerepository, int filmeId)
+        public static async Task DeleteFilmeAsync(IFilmeRepository IFilmerepository, int filmeId)
         {
-            IFilmerepository.Delete(filmeId);
+            await IFilmerepository.DeleteAsync(filmeId);
         }
 
-        public static IResult UpdateFilme(IFilmeRepository repo, FilmeUpdate dto)
+        public static async Task<IResult> UpdateFilmeAsync(IFilmeRepository repo, FilmeUpdate dto)
         {
-            if (!repo.UpdateFilme(dto.Id, dto.Title, dto.Year))
+            if (!await repo.UpdateFilmeAsync(dto.Id, dto.Title, dto.Year))
                 return Results.NotFound($"Filme nao encontrado! Tem certeza que digitou corretamente? -- ID:'{dto.Id}'");
 
-            repo.SaveChanges();
+            await repo.SaveChangesAsync();
             return Results.Ok($"Filme com o ID {dto.Id} atualizado com sucesso!");
         }
 
-        public static IResult ExecuteUpdateFilme(IFilmeRepository repo, FilmeUpdate dto)
+        public static async Task<IResult> ExecuteUpdateFilmeAsync(IFilmeRepository repo, FilmeUpdate dto)
         {
-            var rows = repo.ExecuteUpdateFilme(dto.Id, dto.Title, dto.Year);
+            var rows = await repo.ExecuteUpdateFilmeAsync(dto.Id, dto.Title, dto.Year);
 
             return rows == 0
                 ? Results.NotFound($"Filme nao encontrado! Tem certeza que digitou corretamente? -- ID:'{dto.Id}'")

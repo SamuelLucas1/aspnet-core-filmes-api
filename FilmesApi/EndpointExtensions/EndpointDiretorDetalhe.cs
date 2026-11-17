@@ -6,7 +6,7 @@ namespace FilmesApi.API.EndpointExtensions
     {
         public static void MapDiretorDetalheEndpoints(this WebApplication app)
         {
-            app.MapGet("/diretorDetalhe/{id}", DiretorDetalheHandler.GetDiretorDetalheById);
+            app.MapGet("/diretorDetalhe/{id}", DiretorDetalheHandler.GetDiretorDetalheByIdAsync);
         }
     }
 }

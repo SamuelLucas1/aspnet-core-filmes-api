@@ -65,8 +65,13 @@ namespace FilmesApi.Repo.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<decimal>("Orcamento")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Title")
                         .IsRequired()
+                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Year")
@@ -80,96 +85,112 @@ namespace FilmesApi.Repo.Migrations
                         new
                         {
                             Id = 1,
+                            Orcamento = 0m,
                             Title = "Jurassic Park",
                             Year = 1993
                         },
                         new
                         {
                             Id = 2,
+                            Orcamento = 0m,
                             Title = "Jaws",
                             Year = 1975
                         },
                         new
                         {
                             Id = 3,
+                            Orcamento = 0m,
                             Title = "E.T. the Extra-Terrestrial",
                             Year = 1982
                         },
                         new
                         {
                             Id = 4,
+                            Orcamento = 0m,
                             Title = "Schindler's List",
                             Year = 1993
                         },
                         new
                         {
                             Id = 5,
+                            Orcamento = 0m,
                             Title = "Inception",
                             Year = 2010
                         },
                         new
                         {
                             Id = 6,
+                            Orcamento = 0m,
                             Title = "The Dark Knight",
                             Year = 2008
                         },
                         new
                         {
                             Id = 7,
+                            Orcamento = 0m,
                             Title = "Interstellar",
                             Year = 2014
                         },
                         new
                         {
                             Id = 8,
+                            Orcamento = 0m,
                             Title = "Pulp Fiction",
                             Year = 1994
                         },
                         new
                         {
                             Id = 9,
+                            Orcamento = 0m,
                             Title = "Kill Bill: Vol. 1",
                             Year = 2003
                         },
                         new
                         {
                             Id = 10,
+                            Orcamento = 0m,
                             Title = "Django Unchained",
                             Year = 2012
                         },
                         new
                         {
                             Id = 11,
+                            Orcamento = 0m,
                             Title = "Goodfellas",
                             Year = 1990
                         },
                         new
                         {
                             Id = 12,
+                            Orcamento = 0m,
                             Title = "Taxi Driver",
                             Year = 1976
                         },
                         new
                         {
                             Id = 13,
+                            Orcamento = 0m,
                             Title = "The Departed",
                             Year = 2006
                         },
                         new
                         {
                             Id = 14,
+                            Orcamento = 0m,
                             Title = "Titanic",
                             Year = 1997
                         },
                         new
                         {
                             Id = 15,
+                            Orcamento = 0m,
                             Title = "Avatar",
                             Year = 2009
                         },
                         new
                         {
                             Id = 16,
+                            Orcamento = 0m,
                             Title = "Terminator 2: Judgment Day",
                             Year = 1991
                         });

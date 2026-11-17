@@ -1,6 +1,7 @@
 ﻿using FilmesApi.API.Repo.Contexts;
 using FilmesApi.Domain.Entities;
 using FilmesApi.Repo.Contracts;
+using Microsoft.EntityFrameworkCore;
 
 namespace FilmesApi.Repo;
 
@@ -8,8 +9,8 @@ public class DiretorDetalheRepository(Context _context) : IDiretorDetalhe
 {
     public Context Context { get; set; } = _context;
 
-    public DiretorDetalhe? GetDiretorDetalheById(int id)
+    public async Task<DiretorDetalhe?> GetDiretorDetalheByIdAsync(int id)
     {
-        return Context.DiretoresDetalhes.FirstOrDefault(d => d.Id == id);
+        return await Context.DiretoresDetalhes.FirstOrDefaultAsync(d => d.Id == id);
     }
 }

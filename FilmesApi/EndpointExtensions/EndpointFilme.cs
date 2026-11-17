@@ -4,19 +4,19 @@
     {
         public static void MapFilmeEndpoints(this WebApplication app)
         {
-            app.MapGet("/filmes", FilmeHandler.GetFilmes);
+            app.MapGet("/filmes", FilmeHandler.GetFilmesAsync);
 
-            app.MapGet("/filmes/{id}", FilmeHandler.GetFilmeById);
+            app.MapGet("/filmes/{id}", FilmeHandler.GetFilmeByIdAsync);
 
-            app.MapGet("/filmesEFFunctions/byName/{titulo}", FilmeHandler.GetFilmesEFFunctionsByTitulo);
+            app.MapGet("/filmesEFFunctions/byName/{titulo}", FilmeHandler.GetFilmesEFFunctionsByTituloAsync);
 
-            app.MapGet("/filmesContains/byName/{titulo}", FilmeHandler.GetFilmesContainsByTitulo);
+            app.MapGet("/filmesContains/byName/{titulo}", FilmeHandler.GetFilmesContainsByTituloAsync);
 
-            app.MapDelete("/filmes/{filmeId}", FilmeHandler.DeleteFilme);
+            app.MapDelete("/filmes/{filmeId}", FilmeHandler.DeleteFilmeAsync);
 
-            app.MapPatch("/filmesUpdate", FilmeHandler.UpdateFilme);
+            app.MapPatch("/filmesUpdate", FilmeHandler.UpdateFilmeAsync);
 
-            app.MapPatch("/filmesExecuteUpdate", FilmeHandler.ExecuteUpdateFilme);
+            app.MapPatch("/filmesExecuteUpdate", FilmeHandler.ExecuteUpdateFilmeAsync);
         }
     }
 }
