@@ -16,7 +16,7 @@ namespace FilmesApi.API.Repo.Contexts
             modelBuilder.Entity<Filme>(
                     f =>
                     {
-                        //Determinado que o campo Title é obrigatório e terá um tamanho máximo de 22 caracteres
+                        //Determinado que o campo Title é obrigatório e terá um tamanho máximo de 100 caracteres
                         f.Property(f => f.Title)
                          .IsRequired()
                          .HasMaxLength(100);
