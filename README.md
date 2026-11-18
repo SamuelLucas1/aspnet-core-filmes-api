@@ -1,5 +1,15 @@
 # 🎬 Filmes API
 
+<p align="left">
+  <img src="https://img.shields.io/badge/C%23-512BD4?style=for-the-badge&logo=csharp&logoColor=white" />
+  <img src="https://img.shields.io/badge/.NET%2010-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" />
+  <img src="https://img.shields.io/badge/ASP.NET%20Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" />
+  <img src="https://img.shields.io/badge/Entity%20Framework%20Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" />
+  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" />
+  <img src="https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black" />
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
+</p>
+
 API REST desenvolvida em C# com ASP.NET Core e Entity Framework Core para gerenciamento e consulta de filmes, diretores e informações complementares.
 
 O projeto foi desenvolvido como parte dos meus estudos de desenvolvimento backend com .NET, com foco em APIs REST, persistência de dados, relacionamentos entre entidades e organização do código em camadas.
